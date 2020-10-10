@@ -1,0 +1,17 @@
+
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<span id="/233" class="leancloud_visitors" data-flag-title="Your Article Title">
+    <em class="post-meta-item-text">阅读量 </em>
+    <i class="leancloud-visitors-count">1000000</i>
+</span>
+<div id="vcomments"></div>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'd6oswqJWwy57cgX1cAcb6j4l-MdYXbMMI',
+    appKey: '6MujGj99K32p9p1cS5NwQAMu'
+	lang: document.getElementsByTagName('html')[0].lang=='zh-cn' ? 'zh-CN' : 'en',
+	visitor: true
+  })
+</script>
+
