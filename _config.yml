@@ -1,0 +1,383 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 临时网站
+subtitle: '233'
+description: 
+keywords:
+author: XCwosjw
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://xn--xc-7h7dy07e.tk
+root: /
+permalink: blog/:abbrlink/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render: "404.html"
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## Use post's date for updated date unless set in front-matter
+use_date_for_updated: false
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: next
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: 'git'
+  repo: 
+    github: git@github.com:XCwosjw/jq.git
+  branch: master
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+  
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  
+live2d:
+  enable: false
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: false
+  model:
+    use: live2d-widget-model-miku
+  display:
+    position: right
+    width: 225
+    height: 450
+  mobile:
+    show: true
+  react:
+    opacity: 0.7
+
+symbols_count_time:
+symbols: true
+time: true
+total_symbols: true
+total_time: true
+
+hexo_external_link: 
+  enable: true 
+  enable_base64_encode: true 
+  url_param_name: 'u' 
+  html_file_name: 'go.html' 
+  target_blank: true 
+  link_rel: 'external nofollow noopener noreferrer' 
+  domain: 'window.location.host' # 如果开启了防盗链 
+  safety_chain: false
+  
+# hexo-admin authentification
+admin:
+  username: wosjw
+  password_hash: $2a$10$mPF.7HiA0JRudqZsKYy/3eSB9/7sO6zw5dOYKftDRhklQSbzvE08.
+  secret: 5r@esoj^XNsgAa(J(Ab58H#p!KHwwP3tKpKX7J1)ztX+VqSd+E9Bs-MzvIjYWzD7
+  deployCommand: ./deploy.sh
+  
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+  
+# abbrlink config
+abbrlink:
+  alg: crc16      #support crc16(default) and crc32
+  rep: dec        #support dec(default) and hex
+  drafts: false   #(true)Process draft,(false)Do not process draft. false(default) 
+  # Generate categories from directory-tree
+  # depth: the max_depth of directory-tree you want to generate, should > 0
+  auto_category:
+     enable: true  #true(default)
+     depth:        #3(default)
+     over_write: false 
+  auto_title: false #enable auto title, it can auto fill the title by path
+  auto_date: false #enable auto date, it can auto fill the date by time today
+  force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
+  
+
+    
+theme_config:
+  favicon:
+    small: /images/favicon-16x16.png
+    medium: /images/favicon-32x32.png
+    apple_touch_icon: /images/apple-touch-icon.png
+    safari_pinned_tab: /images/safari-pinned-tab.svg
+    #android_manifest: /images/manifest.json
+    ms_browserconfig: /images/browserconfig.xml
+  scheme: Gemini
+  menu:
+    home: / || fa fa-home
+    #about: /about/ || fa fa-user
+    #tags: /tags/ || fa fa-tags
+    #categories: /categories/ || fa fa-th
+    #archives: /archives/ || fa fa-archive
+    #schedule: /schedule/ || fa fa-calendar
+    #sitemap: /sitemap.xml || fa fa-sitemap
+    #commonweal: /404/ || fa fa-heartbeat
+    #Google镜像: https://google.xcwosjw.ga || fab fa-google
+    #Youtube镜像: https://youtube.xcwosjw.tk || fab fa-youtube
+    #云盘: https://files.xcwosjw.com/ || fas fa-cloud-download-alt
+    #sitemap: /sitemap.xml || fa fa-sitemap
+    XCwosjw的博客: https://blog.xcwosjw.com || fab fa-blogger
+  social:
+    GitHub: https://github.com/XCwosjw || fab fa-github
+    E-Mail: mailto:3277221996@qq.com || fa fa-envelope
+    #Weibo: https://weibo.com/yourname || fab fa-weibo
+    #Google: https://plus.google.com/yourname || fab fa-google
+    #Twitter: https://twitter.com/yourname || fab fa-twitter
+    #FB Page: https://www.facebook.com/yourname || fab fa-facebook
+    #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
+    #YouTube: https://youtube.com/yourname || fab fa-youtube
+    #Instagram: https://instagram.com/yourname || fab fa-instagram
+    #Skype: skype:yourname?call|chat || fab fa-skype
+    #ZeroNet:  wdadaw       || fab fa-creative-commons-zero
+  font:
+    enable: true
+
+    # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
+    host: 
+
+    # Font options:
+    # `external: true` will load this font family from `host` above.
+    # `family: Times New Roman`. Without any quotes.
+    # `size: x.x`. Use `em` as unit. Default: 1 (16px)
+
+    # Global font settings used for all elements inside <body>.
+    global:
+      external: true
+      family: ZCOOL XiaoWei
+      size: 1.1
+
+    # Font settings for site title (.site-title).
+    title:
+      external: true
+      family: Ma Shan Zheng
+      size: 1.3
+
+    # Font settings for headlines (<h1> to <h6>).
+    headings:
+      external: true
+      family: ZCOOL QingKe HuangYou
+      size: 1.3
+
+    # Font settings for posts (.post-body).
+    posts:
+      external: true
+      family: ZCOOL KuaiLe
+
+    # Font settings for <code> and code blocks.
+    codes:
+      external: true
+      family: 
+  pjax: true
+  busuanzi_count:
+    enable: true
+    total_visitors: true
+    total_visitors_icon: fa fa-user
+    total_views: true
+    total_views_icon: fa fa-eye
+    post_views: true
+    post_views_icon: fa fa-eye
+  footer:
+    # Specify the date when the site was setup. If not defined, current year will be used.
+    #since: 2015
+
+    # Icon between year and copyright info.
+    icon:
+      # Icon name in Font Awesome. See: https://fontawesome.com/icons
+      name: fa fa-heart
+      # If you want to animate the icon, set it to true.
+      animated: false
+      # Change the color of icon, using Hex Code.
+      color: "#ff0000"
+
+    # If not defined, `author` from Hexo `_config.yml` will be used.
+    copyright:
+
+    # Powered by Hexo & NexT
+    powered: false
+
+    # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
+    beian:
+      enable: false
+      icp:
+      # The digit in the num of gongan beian.
+      gongan_id:
+      # The full num of gongan beian.
+      gongan_num:
+      # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
+      gongan_icon_url:
+      
+    # Local Search
+    # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+  local_search:
+    enable: true
+      # If auto, trigger search by changing input.
+      # If manual, trigger search by pressing enter key or search button.
+    trigger: auto
+      # Show top n results per article, show all results by setting to -1
+    top_n_per_article: 1
+      # Unescape html strings to the readable one.
+    unescape: false
+      # Preload the search data when the page loads.
+    preload: false
+      
+  search:
+    path: search.xml
+    field: post
+    content: true
+    format: html
+  baidu_push: true
+  language_switcher: true
+
+  # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
+  # For more information: https://fancyapps.com/fancybox
+  fancybox: false
+  lazyload: true
+  custom_file_path:
+    #head: source/_data/head.swig
+    #header: source/_data/header.swig
+    #sidebar: source/_data/sidebar.swig
+    #postMeta: source/_data/post-meta.swig
+    #postBodyEnd: source/_data/post-body-end.swig
+    #footer: source/_data/footer.swig
+    #bodyEnd: source/_data/body-end.swig
+    #variable: source/_data/variables.styl
+    #mixin: source/_data/mixins.styl
+    style: source/_data/styles.styl
+  # Online contact
+  daovoice: true
+  daovoice_app_id: 45418b11
+  sidebar:
+    # Sidebar Position.
+    position: right
+    #position: right
+
+    # Manual define the sidebar width. If commented, will be default for:
+    # Muse | Mist: 320
+    # Pisces | Gemini: 240
+    #width: 300
+
+    # Sidebar Display (only for Muse | Mist), available values:
+    #  - post    expand on posts automatically. Default.
+    #  - always  expand for all pages automatically.
+    #  - hide    expand only when click on the sidebar toggle icon.
+    #  - remove  totally remove sidebar including sidebar toggle.
+    display: post
+  
+    # Sidebar padding in pixels.
+    padding: 18
+    # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
+    offset: 12
+    # Enable sidebar on narrow view (only for Muse | Mist).
+    onmobile: false
+  back2top:
+    enable: true
+    # Back to top in sidebar.
+    sidebar: true
+    # Scroll percent label in b2t button.
+    scrollpercent: true
+  avatar:
+    # Replace the default image and set the url here.
+    url: /images/Avatar.png
+    # If true, the avatar will be dispalyed in circle.
+    rounded: false
+    # If true, the avatar will be rotated with the cursor.
+    rotated: false
+  creative_commons:
+    license: by-nc-sa
+    sidebar: true
+    post: true
+    language:
+  # hexo-hide-posts
+  hide_posts:
+    # 可以改成其他你喜欢的名字
+    filter: hide
+    # 指定你想要传递隐藏文章的 generator，比如让所有隐藏文章在存档页面可见
+    # 常见的 generators 有：index, tag, category, archive, sitemap, feed, etc.
+    public_generators: []
+    # 为隐藏的文章添加 noindex meta 标签，阻止搜索引擎收录
+    noindex: true
